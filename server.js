@@ -4,8 +4,9 @@ const app = express();
 
 global.__basedir = __dirname;
 
+//http://localhost:8081
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "0.0.0.0"
 };
 
 app.use(cors(corsOptions));
@@ -16,6 +17,5 @@ app.use(express.urlencoded({ extended: true }));
 initRoutes(app);
 
 let port = 8080;
-app.listen(port, () => {
-  console.log(`Running at localhost:${port}`);
-});
+app.listen(port, '0.0.0.0');
+console.log(`Running at '0.0.0.0':${port}`);
